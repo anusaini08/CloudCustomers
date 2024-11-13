@@ -3,6 +3,10 @@ version: '3.8'
 services:
   cloudcustomers:
     image: anu08saini/cloudcustomers:latest
+    # to build image from local docker file
+    build:
+      context: .
+      dockerfile: CloudCustomers/Dockerfile
     ports:
       - '6060:6060'
     depends_on:
