@@ -32,8 +32,8 @@ jobs:
            dotnet-version: '8.0'
            
        - name: Restore dependencies
-         run: dotnet restore
+         run: dotnet restore CloudCustomers.sln
 
        - name: Build Project
-         run: dotnet build --configuration Release
+         run: dotnet build CloudCustomers.sln --configuration Release
          
