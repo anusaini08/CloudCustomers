@@ -1,4 +1,4 @@
-name: Build
+name: CI
 
 #Controls when the workflow will run
 on:
@@ -37,7 +37,7 @@ jobs:
        - name: Build Project
          run: dotnet build CloudCustomers.sln --configuration Release
 
- # Step 2: Docker Build Job, depends on Test Job
+ # Step 2: Docker Build Job, depends on Build Job
   docker_build:
     needs: Build
     runs-on: ubuntu-latest

@@ -2,10 +2,7 @@ version: '3.8'
 
 services:
   cloudcustomers:
-    image: ${DOCKER_REGISTRY-}cloudcustomers
-    build:
-      context: .
-      dockerfile: CloudCustomers/Dockerfile
+    image: anu08saini/cloudcustomers:latest
     ports:
       - '6060:6060'
     depends_on:
