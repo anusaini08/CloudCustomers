@@ -1,10 +1,10 @@
 name: Build and push docker image
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_run:
+    workflows: [ "Build" ]
+    types:
+      - completed
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,4 +32,4 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Push docker image to Docker Hub
-      run: docker push anu08saini/cloudcustomers
+      run: docker push anu08saini/cloudcustomers:latest
