@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  cloudcustomers:
+    image: ${DOCKER_REGISTRY-}cloudcustomers
+    build:
+      context: .
+      dockerfile: CloudCustomers/Dockerfile
+    ports:
+      - '6060:6060'
+    depends_on:
+    - cache
+    networks:
+    - backend
+  cache:
+    image: redis:latest
+    restart: always
+    ports:
+      - '6379:6379'
+    networks:
+    - backend
+networks:
+  backend:
+    driver: bridge
